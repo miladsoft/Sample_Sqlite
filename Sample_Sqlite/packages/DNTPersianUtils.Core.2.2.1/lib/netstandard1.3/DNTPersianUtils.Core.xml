@@ -1,0 +1,1255 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>DNTPersianUtils.Core</name>
+    </assembly>
+    <members>
+        <member name="T:DNTPersianUtils.Core.DateTimeOffsetPart">
+            <summary>
+            DateTimeOffset Part
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DateTimeOffsetPart.DateTime">
+            <summary>
+            قسمت زمان مقدار را بدون توجه به آفست باز می‌گرداند و به زمان محلی سرور تبدیل نخواهد شد
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DateTimeOffsetPart.LocalDateTime">
+            <summary>
+            قسمت زمان را با توجه به منطقه زمانی سروری که برنامه بر روی آن اجرا می‌شود، بر می‌گرداند
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DateTimeOffsetPart.UtcDateTime">
+            <summary>
+            The Coordinated Universal Time (UTC) date and time of the current System.DateTimeOffset
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DateTimeOffsetPart.IranLocalDateTime">
+            <summary>
+            این وهله را به منطقه‌ی زمانی ایران تبدیل و مقدار را بر می‌گرداند
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.DateTimeUtils">
+            <summary>
+            متدهای کمکی جهت کار با تاریخ میلادی
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DateTimeUtils.IranStandardTime">
+            <summary>
+            Iran Standard Time
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.GetAge(System.DateTimeOffset,System.DateTime,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            محاسبه سن
+            </summary>
+            <param name="birthday">تاریخ تولد</param>
+            <param name="comparisonBase">مبنای محاسبه مانند هم اکنون</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+            <returns>سن</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.GetAge(System.DateTimeOffset)">
+            <summary>
+            محاسبه سن
+            مبنای محاسبه هم اکنون
+            </summary>
+            <param name="birthday">تاریخ تولد</param>
+            <returns>سن</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.GetAge(System.DateTime,System.DateTime)">
+            <summary>
+            محاسبه سن
+            </summary>
+            <param name="birthday">تاریخ تولد</param>
+            <param name="comparisonBase">مبنای محاسبه مانند هم اکنون</param>
+            <returns>سن</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.GetAge(System.DateTime)">
+            <summary>
+            محاسبه سن
+            مبنای محاسبه هم اکنون
+            </summary>
+            <param name="birthday">تاریخ تولد</param>
+            <returns>سن</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.GetDateTimeOffsetPart(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            دریافت جزء زمانی ویژه‌ی این وهله
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.GetNow(System.DateTimeKind)">
+            <summary>
+            بازگشت زمان جاری با توجه به نوع زمان
+            </summary>
+            <param name="dataDateTimeKind">نوع زمان ورودی</param>
+            <returns>هم اکنون</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.ToIranTimeZoneDateTimeOffset(System.DateTimeOffset)">
+            <summary>
+            تبدیل منطقه زمانی این وهله به منطقه زمانی ایران
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.DateTimeUtils.ToIranTimeZoneDateTime(System.DateTime)">
+            <summary>
+            تبدیل منطقه زمانی این وهله به منطقه زمانی ایران
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.SunEvent">
+            <summary>
+             Sun Event
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.SunEvent.VernalEquinox">
+            <summary>
+            march equinox
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.SunEvent.SummerSolstice">
+            <summary>
+            June solstice
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.SunEvent.AutumnalEquinox">
+            <summary>
+            September equinox
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.SunEvent.WinterSolstice">
+            <summary>
+            December solstice
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.EquinoxCalculator">
+            <summary>
+            Based on Jean Meeus book _Astronomical Algorithms_
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.EquinoxCalculator.Deg2Radian">
+            <summary>
+            Degrees to Radians conversion factor.
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.EquinoxCalculator.ApproxEquals(System.Double,System.Double)">
+            <summary>
+             Are two float numbers equal?
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.EquinoxCalculator.GetSunEventUtc(System.Int32,DNTPersianUtils.Core.SunEvent)">
+            <summary>
+            Calculates time of the Equinox and Solstice.
+            </summary>
+            <param name="year">Year to calculate for.</param>
+            <param name="sunEvent">Event to calculate.</param>
+            <returns>Date and time event occurs as a fractional Julian Day.</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.EquinoxCalculator.IsStartOfNewYear(System.DateTime,System.Double)">
+            <summary>
+            Is given date start of a new year?
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.EquinoxCalculator.JulianToUtcDate(System.Double)">
+            <summary>
+            Converts a fractional Julian Day to a .NET DateTime.
+            </summary>
+            <param name="julianDay">Fractional Julian Day to convert.</param>
+            <returns>Date and Time in .NET DateTime format.</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.EquinoxCalculator.getSumOfPeriodicTerms(System.Double)">
+            <summary>
+            These values are from Table 27.C
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.FriendlyPersianDateUtils">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToPersianDateTextify(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            نمایش فارسی روز دریافتی شمسی
+            مانند سه شنبه ۲۱ دی ۱۳۹۵
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToPersianDateTextify(System.DateTime)">
+            <summary>
+            نمایش فارسی روز دریافتی
+            مانند سه شنبه ۲۱ دی ۱۳۹۵
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToPersianDateTextify(System.Nullable{System.DateTime})">
+            <summary>
+            نمایش فارسی روز دریافتی
+            مانند سه شنبه ۲۱ دی ۱۳۹۵
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToPersianDateTextify(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            نمایش فارسی روز دریافتی
+            مانند سه شنبه ۲۱ دی ۱۳۹۵
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToPersianDateTextify(System.Nullable{System.DateTimeOffset},DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            نمایش فارسی روز دریافتی
+            مانند سه شنبه ۲۱ دی ۱۳۹۵
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.DateTime,System.DateTime)">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <param name="comparisonBase">مبنای مقایسه مانند هم اکنون</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.DateTime)">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مبنای محاسبه هم اکنون
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.DateTimeOffset,System.DateTime,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <param name="comparisonBase">مبنای مقایسه مانند هم اکنون</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.DateTimeOffset)">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مبنای محاسبه هم اکنون
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.Nullable{System.DateTime},System.DateTime)">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <param name="comparisonBase">مبنای مقایسه مانند هم اکنون</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.Nullable{System.DateTime})">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مبنای محاسبه هم اکنون
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.Nullable{System.DateTimeOffset},System.DateTime,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <param name="comparisonBase">مبنای مقایسه مانند هم اکنون</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.FriendlyPersianDateUtils.ToFriendlyPersianDateTextify(System.Nullable{System.DateTimeOffset})">
+            <summary>
+            نمایش دوستانه‌ی یک تاریخ و ساعت انگلیسی به شمسی
+            مبنای محاسبه هم اکنون
+            مانند ۱۰ روز قبل، سه شنبه ۲۱ دی ۱۳۹۵، ساعت ۱۰:۲۰
+            </summary>
+            <param name="dt">تاریخ ورودی</param>
+            <returns>نمایش دوستانه</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.Language">
+            <summary>
+            Number to word languages
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.Language.English">
+            <summary>
+            English Language
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.Language.Persian">
+            <summary>
+            Persian Language
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.DigitGroup">
+            <summary>
+            Digit's groups
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DigitGroup.Ones">
+            <summary>
+            Ones group
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DigitGroup.Teens">
+            <summary>
+            Teens group
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DigitGroup.Tens">
+            <summary>
+            Tens group
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DigitGroup.Hundreds">
+            <summary>
+            Hundreds group
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.DigitGroup.Thousands">
+            <summary>
+            Thousands group
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.NumberWord">
+            <summary>
+            Equivalent names of a group
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.NumberWord.Group">
+            <summary>
+            Digit's group
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.NumberWord.Language">
+            <summary>
+            Number to word language
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.NumberWord.Names">
+            <summary>
+            Equivalent names
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.HumanReadableInteger">
+            <summary>
+            Convert a number into words
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.HumanReadableInteger.NumberToText(System.Int32,DNTPersianUtils.Core.Language)">
+            <summary>
+            display a numeric value using the equivalent text
+            </summary>
+            <param name="number">input number</param>
+            <param name="language">local language</param>
+            <returns>the equivalent text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.HumanReadableInteger.NumberToText(System.UInt32,DNTPersianUtils.Core.Language)">
+            <summary>
+            display a numeric value using the equivalent text
+            </summary>
+            <param name="number">input number</param>
+            <param name="language">local language</param>
+            <returns>the equivalent text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.HumanReadableInteger.NumberToText(System.Byte,DNTPersianUtils.Core.Language)">
+            <summary>
+            display a numeric value using the equivalent text
+            </summary>
+            <param name="number">input number</param>
+            <param name="language">local language</param>
+            <returns>the equivalent text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.HumanReadableInteger.NumberToText(System.Decimal,DNTPersianUtils.Core.Language)">
+            <summary>
+            display a numeric value using the equivalent text
+            </summary>
+            <param name="number">input number</param>
+            <param name="language">local language</param>
+            <returns>the equivalent text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.HumanReadableInteger.NumberToText(System.Double,DNTPersianUtils.Core.Language)">
+            <summary>
+            display a numeric value using the equivalent text
+            </summary>
+            <param name="number">input number</param>
+            <param name="language">local language</param>
+            <returns>the equivalent text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.HumanReadableInteger.NumberToText(System.Int64,DNTPersianUtils.Core.Language)">
+            <summary>
+            display a numeric value using the equivalent text
+            </summary>
+            <param name="number">input number</param>
+            <param name="language">local language</param>
+            <returns>the equivalent text</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranCities.City">
+            <summary>
+            Iran City
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.City.ProvinceName">
+            <summary>
+            Province Name
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.City.CountyName">
+            <summary>
+            County Name
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.City.DistrictName">
+            <summary>
+            District Name
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.City.CityName">
+            <summary>
+            City Name
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.City.CityDivisionCode">
+            <summary>
+            City Division Code
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.City.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.City.Equals(System.Object)">
+            <summary>
+            Equals
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.City.GetHashCode">
+            <summary>
+            GetHashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranCities.County">
+            <summary>
+            Iran's County
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.County.CountyName">
+            <summary>
+            County Name
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.County.Districts">
+            <summary>
+            Districts
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.County.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.County.Equals(System.Object)">
+            <summary>
+            Equals
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.County.GetHashCode">
+            <summary>
+            GetHashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranCities.District">
+            <summary>
+            District
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.District.DistrictName">
+            <summary>
+            District Name
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.District.Cities">
+            <summary>
+            Cities
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.District.ToString">
+            <summary>
+            ToString
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.District.Equals(System.Object)">
+            <summary>
+            Equals
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.District.GetHashCode">
+            <summary>
+            GetHashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranCities.Iran">
+            <summary>
+            Iran's Cities.
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.IranCities.Iran.Cities">
+            <summary>
+            Iran's Cities.
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.Iran.Provinces">
+            <summary>
+            Iran's Provinces.
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranCities.Province">
+            <summary>
+            Iran's Province
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.Province.ProvinceName">
+            <summary>
+            Province Name
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.IranCities.Province.Counties">
+            <summary>
+            Counties
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.Province.ToString">
+            <summary>
+            ToString()
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.Province.Equals(System.Object)">
+            <summary>
+            Equals
+            </summary>
+            <param name="obj"></param>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCities.Province.GetHashCode">
+            <summary>
+            GetHashCode
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranCodesUtils">
+            <summary>
+            IranCodes Utils
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCodesUtils.IsValidIranianMobileNumber(System.String)">
+            <summary>
+            Validate Iranian mobile number
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCodesUtils.IsValidIranianPhoneNumber(System.String)">
+            <summary>
+            Validate Iranian phone number
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranCodesUtils.IsValidIranianPostalCode(System.String)">
+            <summary>
+            Validate Iranian postal code
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranShebaUtils">
+            <summary>
+            Validate IBAN
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranShebaUtils.IsValidIranShebaNumber(System.String)">
+            <summary>
+            Validate IBAN (International Bank Account Number, Sheba)
+            </summary>
+            <param name="iban">International Bank Account Number, Sheba</param>
+        </member>
+        <member name="T:DNTPersianUtils.Core.IranShetabUtils">
+            <summary>
+            Credit and Debit Card (Shetab) validation
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.IranShetabUtils.IsValidIranShetabNumber(System.String)">
+            <summary>
+            validate Shetab card numbers
+            </summary>
+            <param name="creditCardNumber">Shetab card number</param>
+        </member>
+        <member name="T:DNTPersianUtils.Core.NationalCodeUtils">
+            <summary>
+            Validate IR National Code
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.NationalCodeUtils.IsNumber(System.String)">
+            <summary>
+            If string is a number returns true
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.NationalCodeUtils.IsValidIranianNationalCode(System.String)">
+            <summary>
+            Validate IR National Code
+            </summary>
+            <param name="nationalCode">National Code</param>
+            <returns></returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.Normalizer.AggressiveEditing">
+            <summary>
+            Replaces more than one ! or ? marks with just one or removes all extra kashida and spaces
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.AggressiveEditing.NormalizeAllKashida(System.String)">
+            <summary>
+            Removes all kashida
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.AggressiveEditing.NormalizeExtraMarks(System.String)">
+            <summary>
+            Replaces more than one ! or ? mark with just one
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.AggressiveEditing.NormalizeOutsideInsideSpacing(System.String)">
+            <summary>
+            Fixes outside and inside spacing for () [] {}  “” «»
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.AggressiveEditing.NormalizeSpacingAndLineBreaks(System.String)">
+            <summary>
+            Replaces more than one space or line break with just a single one
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.AggressiveEditing.NormalizeUnderLines(System.String)">
+            <summary>
+            Clean UnderLines
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.Normalizer.FixDash">
+            <summary>
+            Replaces double dash to ndash and triple dash to mdash
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.FixDash.NormalizeDashes(System.String)">
+            <summary>
+            Replaces double dash to ndash and triple dash to mdash.
+            It converts آزمون--- to آزمون—
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.Normalizer.FixDiacritics">
+            <summary>
+            حذف اعراب از حروف و کلمات
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.FixDiacritics.RemoveDiacritics(System.String)">
+            <summary>
+            حذف اعراب از حروف و کلمات
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.Normalizer.FixDots">
+            <summary>
+            Replaces three dots with ellipsis
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.FixDots.NormalizeDotsToEllipsis(System.String)">
+            <summary>
+            Replaces three dots with ellipsis.
+            It converts آزمون.... to آزمون…
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.Normalizer.FixEnglishQuotes">
+            <summary>
+            Replaces English quotes with their Persian equivalent
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.FixEnglishQuotes.NormalizeEnglishQuotes(System.String)">
+            <summary>
+            Replaces English quotes with their Persian equivalent.
+            It converts 'تست' to «تست»
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.Normalizer.FixZwnj">
+            <summary>
+            Puts zwnj char/half space between word and prefix/suffix
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.FixZwnj.ApplyHalfSpaceRule(System.String)">
+            <summary>
+            Adds zwnj char between word and prefix/suffix
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.FixZwnj.NormalizeZwnj(System.String)">
+            <summary>
+            Removes unnecessary zwnj char that are succeeded/preceded by a space
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.Normalizer.FixZwnj.NormalizeYeHeHalfSpace(System.String)">
+            <summary>
+            Converts ه ی to ه‌ی
+            </summary>
+            <param name="text">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.PersianCulture">
+            <summary>
+            فرهنگ فارسی سفارشی سازی شده
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianCulture.PersianDayWeekNames">
+            <summary>
+            معادل فارسی روزهای هفته میلادی
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianCulture.PersianMonthDayNumberNames">
+            <summary>
+            عدد به حروف روزهای شمسی
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianCulture.PersianMonthNames">
+            <summary>
+            نام فارسی ماه‌های شمسی
+            </summary>
+        </member>
+        <member name="P:DNTPersianUtils.Core.PersianCulture.Instance">
+            <summary>
+            وهله‌ی یکتای فرهنگ فارسی سفارشی سازی شده
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianDayOfMonth(System.DateTime)">
+            <summary>
+            Returns the day-of-month part of this <see cref="T:System.DateTime"/> localized in Persian calendar.
+            </summary>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> to extend.</param>
+            <returns>An integer between 1 and 31 representing the day-of-month part of this <see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianMonth(System.DateTime)">
+            <summary>
+            Returns the month part of this <see cref="T:System.DateTime"/> localized in Persian calendar.
+            </summary>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> to extend.</param>
+            <returns>An integer between 1 and 12 representing the month part of this <see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianMonthDayNumberName(System.Int32)">
+            <summary>
+            عدد به حروف روزهای شمسی
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianMonthName(System.Int32)">
+            <summary>
+            نام فارسی ماه‌های شمسی
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianWeekDayName(System.DayOfWeek)">
+            <summary>
+            دریافت معادل فارسی نام روز هفته‌ی میلادی
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianWeekDayName(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            گرفتن نام فارسی روزهای هفته
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianWeekDayName(System.DateTime)">
+            <summary>
+            گرفتن نام فارسی روزهای هفته
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianWeekDayName(System.Nullable{System.DateTime})">
+            <summary>
+            گرفتن نام فارسی روزهای هفته
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianWeekDayName(System.Nullable{System.DateTimeOffset},DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            گرفتن نام فارسی روزهای هفته
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianWeekDayName(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            گرفتن نام فارسی روزهای هفته
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.GetPersianYear(System.DateTime)">
+            <summary>
+            Returns the year part of this <see cref="T:System.DateTime"/> localized in Persian calendar.
+            </summary>
+            <param name="dateTime">The <see cref="T:System.DateTime"/> to extend.</param>
+            <returns>An integer between 1 and 9999 representing the year part of this <see cref="T:System.DateTime"/>.</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianCulture.getPersianCulture">
+            <summary>
+            اصلاح تقویم فرهنگ فارسی
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.PersianDateTimeUtils">
+            <summary>
+            Represents PersianDateTime utils.
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.IsValidPersianDate(System.Int32,System.Int32,System.Int32)">
+            <summary>
+            تعیین اعتبار تاریخ شمسی
+            </summary>
+            <param name="persianYear">سال شمسی</param>
+            <param name="persianMonth">ماه شمسی</param>
+            <param name="persianDay">روز شمسی</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.IsValidPersianDateTime(System.String)">
+            <summary>
+            تعیین اعتبار تاریخ و زمان رشته‌ای شمسی
+            با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴
+            </summary>
+            <param name="persianDateTime">تاریخ و زمان شمسی</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToGregorianDateTime(System.String)">
+            <summary>
+            تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی
+            با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴
+            </summary>
+            <param name="persianDateTime">تاریخ و زمان شمسی</param>
+            <returns>تاریخ و زمان قمری</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToGregorianDateTimeOffset(System.String)">
+            <summary>
+            تبدیل تاریخ و زمان رشته‌ای شمسی به میلادی
+            با قالب‌های پشتیبانی شده‌ی ۹۰/۸/۱۴ , 1395/11/3 17:30 , ۱۳۹۰/۸/۱۴ , ۹۰-۸-۱۴ , ۱۳۹۰-۸-۱۴
+            </summary>
+            <param name="persianDateTime">تاریخ و زمان شمسی</param>
+            <returns>تاریخ و زمان قمری</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateString(System.DateTime)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateString(System.Nullable{System.DateTime})">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateString(System.Nullable{System.DateTimeOffset},DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395
+            </summary>
+            <returns>تاریخ شمسی</returns>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateString(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395
+            </summary>
+            <returns>تاریخ شمسی</returns>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateTimeString(System.DateTime)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateTimeString(System.Nullable{System.DateTimeOffset},DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ
+            </summary>
+            <returns>تاریخ شمسی</returns>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToLongPersianDateTimeString(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 21 دی 1395، 10:20:02 ق.ظ
+            </summary>
+            <returns>تاریخ شمسی</returns>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToPersianDateTimeString(System.DateTime,System.String)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToPersianYearMonthDay(System.Nullable{System.DateTimeOffset},DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌
+            </summary>
+            <param name="gregorianDate">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToPersianYearMonthDay(System.Nullable{System.DateTime})">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToPersianYearMonthDay(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌
+            </summary>
+            <param name="gregorianDate">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToPersianYearMonthDay(System.DateTime)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی و دریافت اجزای سال، ماه و روز نتیجه‌ی حاصل‌
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateString(System.Nullable{System.DateTimeOffset},DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateString(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateString(System.DateTime)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateString(System.Nullable{System.DateTime})">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateTimeString(System.DateTime)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21 10:20
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateTimeString(System.Nullable{System.DateTime})">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21 10:20
+            </summary>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateTimeString(System.Nullable{System.DateTimeOffset},DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21 10:20
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianDateTimeUtils.ToShortPersianDateTimeString(System.DateTimeOffset,DNTPersianUtils.Core.DateTimeOffsetPart)">
+            <summary>
+            تبدیل تاریخ میلادی به شمسی
+            با قالبی مانند 1395/10/21 10:20
+            </summary>
+            <param name="dt">تاریخ و زمان</param>
+            <param name="dateTimeOffsetPart">کدام جزء این وهله مورد استفاده قرار گیرد؟</param>
+            <returns>تاریخ شمسی</returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.PersianNormalizers">
+            <summary>
+            Persian Text Normalizers
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.None">
+            <summary>
+            None
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.ApplyPersianYeKe">
+            <summary>
+            Fixes common writing mistakes caused by using a bad keyboard layout,
+            such as replacing Arabic Ye with Persian one and so on ...
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.ApplyHalfSpaceRule">
+            <summary>
+            ما می توانیم --> ما می‌توانیم
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.CleanupZwnj">
+            <summary>
+            Removes unnecessary zwnj char that are succeeded/preceded by a space
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.FixDashes">
+            <summary>
+            آزمون--- to آزمون—
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.ConvertDotsToEllipsis">
+            <summary>
+            آزمون.... to آزمون…
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.ConvertEnglishQuotes">
+            <summary>
+            'تست' to «تست»
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.CleanupExtraMarks">
+            <summary>
+            Replaces more than one ! or ? mark with just one
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.RemoveAllKashida">
+            <summary>
+            سلامـــت to سلامت
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.CleanupSpacingAndLineBreaks">
+            <summary>
+            Replaces more than one space or line break with just a single one
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.RemoveOutsideInsideSpacing">
+            <summary>
+            Fixes outside and inside spacing for () [] {}  “” «»
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.ApplyPersianNumbers">
+            <summary>
+            Converts English digits of a given number to their equivalent Persian digits
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianNormalizers.RemoveDiacritics">
+            <summary>
+            حذف اعراب از حروف و کلمات
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.PersianNormalizerUtils">
+            <summary>
+            Persian Text Normalizer
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianNormalizerUtils.NormalizePersianText(System.String,DNTPersianUtils.Core.PersianNormalizers)">
+            <summary>
+            Persian Text Normalizer
+            </summary>
+            <param name="text"></param>
+            <param name="normalizers"></param>
+            <returns></returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.PersianNumbersUtils">
+            <summary>
+            Converts English digits of a given number to their equivalent Persian digits.
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianNumbersUtils.ToPersianNumbers(System.Int32,System.String)">
+            <summary>
+            Converts English digits of a given number to their equivalent Persian digits.
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianNumbersUtils.ToPersianNumbers(System.Int64,System.String)">
+            <summary>
+            Converts English digits of a given number to their equivalent Persian digits.
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianNumbersUtils.ToPersianNumbers(System.Nullable{System.Int32},System.String)">
+            <summary>
+            Converts English digits of a given number to their equivalent Persian digits.
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianNumbersUtils.ToPersianNumbers(System.Nullable{System.Int64},System.String)">
+            <summary>
+            Converts English digits of a given number to their equivalent Persian digits.
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianNumbersUtils.ToPersianNumbers(System.String)">
+            <summary>
+            Converts English digits of a given string to their equivalent Persian digits.
+            </summary>
+            <param name="data">English number</param>
+            <returns></returns>
+        </member>
+        <member name="M:DNTPersianUtils.Core.PersianNumbersUtils.ToEnglishNumbers(System.String)">
+            <summary>
+            Converts Persian and Arabic digits of a given string to their equivalent English digits.
+            </summary>
+            <param name="data">Persian number</param>
+            <returns></returns>
+        </member>
+        <member name="T:DNTPersianUtils.Core.PersianStopwords">
+            <summary>
+            A collection of Persian stopwords
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.PersianStopwords.List">
+            <summary>
+            A collection of Persian stopwords
+            Source: https://github.com/ziaa/Persian-stopwords-collection
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.RegexUtils">
+            <summary>
+            متدهای کمکی مبتنی بر عبارات باقاعده
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.RegexUtils.MatchTimeout">
+            <summary>
+            زمان انقضای پردازش عبارت باقاعده
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.RegexUtils.ContainsFarsi(System.String)">
+            <summary>
+            آیا عبارت مدنظر حاوی حروف فارسی است؟
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.RegexUtils.StripHtmlTags(System.String)">
+            <summary>
+            حذف تگ‌های یک عبارت
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.TimeConstants">
+            <summary>
+            Time Constants
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.TimeConstants.Day">
+            <summary>
+            Day = 24 * Hour
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.TimeConstants.Hour">
+            <summary>
+            Hour = 60 * Minute
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.TimeConstants.Minute">
+            <summary>
+            Minute = 60 * Second
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.TimeConstants.Month">
+            <summary>
+            Month = 30 * Day
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.TimeConstants.Second">
+            <summary>
+            Second = 1
+            </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.UnicodeConstants">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.UnicodeConstants.RleChar">
+             <summary>
+            
+             </summary>
+        </member>
+        <member name="T:DNTPersianUtils.Core.YeKe">
+            <summary>
+            YeKe
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.YeKe.ArabicKeChar">
+            <summary>
+            Arabic Ke Char \u0643 = ARABIC LETTER KAF
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.YeKe.ArabicYeChar1">
+            <summary>
+            Arabic Ye Char \u0649 = ARABIC LETTER ALEF MAKSURA
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.YeKe.ArabicYeChar2">
+            <summary>
+            Arabic Ye Char \u064A = ARABIC LETTER YEH
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.YeKe.PersianKeChar">
+            <summary>
+            Persian Ke Char \u06A9 = ARABIC LETTER KEHEH
+            </summary>
+        </member>
+        <member name="F:DNTPersianUtils.Core.YeKe.PersianYeChar">
+            <summary>
+            Persian Ye Char \u06CC = 'ARABIC LETTER FARSI YEH
+            </summary>
+        </member>
+        <member name="M:DNTPersianUtils.Core.YeKe.ApplyCorrectYeKe(System.String)">
+            <summary>
+            Fixes common writing mistakes caused by using a bad keyboard layout,
+            such as replacing Arabic Ye with Persian one and so on ...
+            </summary>
+            <param name="data">Text to process</param>
+            <returns>Processed Text</returns>
+        </member>
+    </members>
+</doc>
